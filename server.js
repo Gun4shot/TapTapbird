@@ -1,9 +1,11 @@
 const express = require("express");
-const cors = require("cors");
+const cors = require('cors'); //allows for multi server connection
 const mongoose = require("mongoose");
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'https://gun4shot.github.io'
+}));
 app.use(express.json());
 require('dotenv').config();
 
