@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TapTapbird</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js"></script>
+  
+
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div id="Title">
+  <img class="item1" src="bird6.png" width=51px height=36px/>
+  <h1 class="item2">TapTapBird</h1>
+</div>
+
+
+
+  <h2 id="Title2">Select Difficulty</h2>
+<div id="levelSelection">
+  <div class="levelBtn" onclick="levelSelection('peaceful')">Peaceful</div>
+  <div class="levelBtn" onclick="levelSelection('normal')">Normal</div>
+  <div class="levelBtn" onclick="levelSelection('hard')">Hard</div>
+</div>
+<div class="returnbtn">
+<a href="index.html" id="Homebtn" style="display:none">Return home</a>
+</div>
+<br>
+<div class="canvascenter">
+<canvas id="board" style="display:none"></canvas>
+</div>
+<br>
+
+<br>
+<br>
+<div class="infoAboutLevels" onclick="ShowInfo()" style="margin:auto">👉Info about levels</div>
+
+<button onclick="loadLeaderboard()">Show Leaderboard</button>
+<div id="leaderboard"></div>
+
+
+
+
+<div id="infoLevels">
+  <p>●<b>Peaceful</b>: Speed of the bird doesn’t increase. You can play as long as you want peacefully.</p>
+  <p>●<b>Normal</b>:Speed of the bird increases after 10 points, 20 points and reaches max speed at 30 points. Might get challenging.</p>
+  <p>●<b>Hard</b>:Speed already starts faster then normal, increases after 10,20 and 30 points. Almost impossible to play at max speed. Only play if you have insane reflexes.</p>
+  
+  
+</div>
+</body>
+</html>

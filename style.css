@@ -1,0 +1,90 @@
+body {
+    font-family: "Pixelify Sans", sans-serif;
+    text-align:center;
+    text-decoration: none;
+    background-color:#eda2aa;
+    
+}
+a {
+    text-decoration: none;
+}
+#board{
+   
+    background-image:url("bg4.jpg");
+    background-size:cover;
+    background-position:center;
+    border:solid 5px #e19aab;
+}
+
+
+
+
+.pixelify-sans-font {
+  font-family: "Pixelify Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+
+}
+
+#Homebtn{
+  border:solid 5px #eda2af; 
+  width:fit-content;
+  margin:auto;
+  padding:5px;
+  border-radius:12px;
+  background-color:#d997ba;
+  transition: transform 150ms ease-in-out;
+}
+
+
+.returnbtn:hover{
+    transform:translateY(-5px);
+    color:#d997dc;
+}
+#Title{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#levelSelection{
+    display: flex;
+    gap:10px;
+    align-items: center;
+    justify-content: center;
+}
+.levelBtn{
+  border:solid 5px #eda2af; 
+  width:fit-content;
+  padding:5px;
+  border-radius:12px;
+  background-color:#d997ba;
+  transition: transform 150ms ease-in-out;
+    
+}
+.levelBtn:hover{
+    transform:translateY(-5px);
+    background-color:#d997dc;
+}
+.infoAboutLevels{
+    border:solid 5px #eda2af; 
+  width:fit-content;
+  padding:5px;
+  border-radius:12px;
+  background-color:#d997ba;
+  transition: transform 150ms ease-in-out;
+    
+}
+.infoAboutLevels:hover{
+    transform:translateY(-5px);
+    background-color:#d997dc;
+}
+#infoLevels{
+    display:none;
+}
+.canvascenter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
