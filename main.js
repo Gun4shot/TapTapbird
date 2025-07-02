@@ -368,9 +368,10 @@ function ShowInfo(){
  }
 
 }
+const API_URL = "https://your-app-name.onrender.com";
 
 function submitScore(name, score) {
-  fetch("http://localhost:3000/submit", {
+  fetch(`${API_URL}/submit`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -386,7 +387,7 @@ function submitScore(name, score) {
 }
 
 function loadLeaderboard() {
-  fetch("http://localhost:3000/leaderboard")
+  fetch(`${API_URL}/leaderboard`)
     .then(res => res.json())
     .then(data => {
       let html = "<h3>Leaderboard</h3><ol>";
