@@ -368,7 +368,7 @@ function ShowInfo(){
  }
 
 }
-const API_URL = "https://your-app-name.onrender.com";
+const API_URL = "https://taptapbird.onrender.com";
 
 function submitScore(name, score) {
   fetch(`${API_URL}/submit`, {
