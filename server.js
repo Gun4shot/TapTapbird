@@ -40,7 +40,7 @@ app.get("/leaderboard", async (req, res) => {
 
 // Submit a new score
 app.post("/submit", async (req, res) => {
-  const { name, score } = req.body;
+  const { name, score, level } = req.body;
 
   if (!name || score == null || !level) {
     return res.status(400).json({ error: "Name and score required" });
