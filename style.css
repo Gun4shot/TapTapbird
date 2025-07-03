@@ -80,6 +80,7 @@ a {
     transform:translateY(-5px);
     background-color:#d997dc;
 }
+
 #infoLevels{
     display:none;
 }
@@ -87,4 +88,20 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+#leaderboard{
+    display:none;
+}
+.infoAboutLeader{
+    border:solid 5px #eda2af; 
+  width:fit-content;
+  padding:5px;
+  border-radius:12px;
+  background-color:#d997ba;
+  transition: transform 150ms ease-in-out;
+    
+}
+.infoAboutLeader:hover{
+    transform:translateY(-5px);
+    background-color:#d997dc;
 }

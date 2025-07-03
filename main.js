@@ -1,5 +1,5 @@
 
-let playerName = prompt("Enter your name");
+let playerName = prompt("Enter your name to be used for the game");
 
 let board;
 let boardWidth =360;
@@ -77,6 +77,8 @@ function levelSelection(selectedLevel){
   document.getElementById("Homebtn").style.display = "block";
   document.getElementById("infoLevels").style.display = "none";
   document.querySelector(".infoAboutLevels").style.display="none";
+  document.getElementById("leaderboard").style.display="none";
+   document.querySelector(".infoAboutLeader").style.display="none";
   firstBlock();
 }
 
@@ -134,7 +136,13 @@ function handleStart(){
   
   //takes input
   document.removeEventListener("click",handleStart)
-  document.addEventListener("click",moveBird)
+  document.addEventListener("click", moveBird);
+  document.addEventListener("keydown", function(e) {
+    if (e.code === "Space") {
+      e.preventDefault(); // Prevent page scroll
+      moveBird();
+    }
+  });
     }
   }
 
@@ -277,7 +285,7 @@ if (levelHard){
     context.fillText("Click to restart",5,boardHeight/2);
   }
   if (gameOver) {
-  submitScore(playerName, score);
+  submitScore(playerName, score , level);
   scoreSubmitted = true; // Make sure you don’t submit multiple times
 }
 
@@ -344,12 +352,12 @@ function moveBird() {
     }
 
 }
- let test=true;
+
 function detectCollision(a,b){
   return a.x< b.x + b.width &&
          a.x + a.width > b.x &&
          a.y < b.y + b.height &&
-         a.y + a.height > b.y && test==false;
+         a.y + a.height > b.y;
 }
 
 function startGame(){
@@ -370,13 +378,14 @@ function ShowInfo(){
 }
 const API_URL = "https://taptapbird.onrender.com";
 
-function submitScore(name, score) {
+function submitScore(name, score, level) {
+  console.log(level)
   fetch(`${API_URL}/submit`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({ name, score })
+    body: JSON.stringify({ name, score, level })
   })
   .then(res => res.json())
   .then(data => {
@@ -386,15 +395,27 @@ function submitScore(name, score) {
   });
 }
 
+let leaderboardshown=false;
 function loadLeaderboard() {
-  fetch(`${API_URL}/leaderboard`)
+  if (!leaderboardshown){
+    document.getElementById("leaderboard").style.display="block";
+    leaderboardshown=true;
+  }
+  else if (leaderboardshown){
+    document.getElementById("leaderboard").style.display="none";
+     leaderboardshown=false;
+  }
+   fetch(`${API_URL}/leaderboard`)
     .then(res => res.json())
     .then(data => {
       let html = "<h3>Leaderboard</h3><ol>";
       data.forEach(player => {
-        html += `<li>${player.name}: ${player.score}</li>`;
+        html += `<li>${player.name}: ${player.score}: ${player.score}</li>`;
       });
       html += "</ol>";
       document.getElementById("leaderboard").innerHTML = html;
     });
+ 
+
+  
 }

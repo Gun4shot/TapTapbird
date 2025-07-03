@@ -22,7 +22,8 @@ mongoose.connect(process.env.MONGO_URI, {
 // Define Score Schema
 const scoreSchema = new mongoose.Schema({
   name: String,
-  score: Number
+  score: Number,
+  level: String
 });
 
 const Score = mongoose.model("Score", scoreSchema);
@@ -30,7 +31,7 @@ const Score = mongoose.model("Score", scoreSchema);
 // Get top 5 scores
 app.get("/leaderboard", async (req, res) => {
   try {
-    const topScores = await Score.find().sort({ score: -1 }).limit(5);
+    const topScores = await Score.find().sort({ score: -1 }).limit(10);
     res.json(topScores);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -41,12 +42,12 @@ app.get("/leaderboard", async (req, res) => {
 app.post("/submit", async (req, res) => {
   const { name, score } = req.body;
 
-  if (!name || score == null) {
+  if (!name || score == null || !level) {
     return res.status(400).json({ error: "Name and score required" });
   }
 
   try {
-    const newScore = new Score({ name, score });
+    const newScore = new Score({ name, score, level });
     await newScore.save();
     res.json({ success: true });
   } catch (err) {
