@@ -410,7 +410,7 @@ function loadLeaderboard() {
     .then(data => {
       let html = "<h3>Leaderboard</h3><ol>";
       data.forEach(player => {
-        html += `<li>${player.name}: ${player.score}:</li>`;
+        html += `<li>${player.name}: ${player.score}</li>`;
       });
       html += "</ol>";
       document.getElementById("leaderboard").innerHTML = html;
